@@ -1,0 +1,319 @@
+/* Base Reset & Fonts */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+  color: #333;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
+
+/* Upload Section */
+h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #007bff;
+}
+
+/* Viewer Layout */
+.viewer-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* PDF Viewer */
+#pdfViewer {
+  flex: 3;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Thumbnail Sidebar */
+#thumbnailContainer {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Page Indicator */
+#pageIndicator {
+  background: #fffae6;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Thumbnails */
+.thumbnail {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.thumbnail:hover {
+  border-color: #007bff;
+}
+
+/* PDF Page Styling */
+.pdf-page {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Delete Button on Page */
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Download Button */
+#downloadBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+#downloadBtn:hover {
+  background: #218838;
+}
+@media (max-width: 799px) {
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .viewer-area {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #pdfViewer {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px 8px 0 0;
+  }
+
+  #thumbnailContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: #fdfdfd;
+    border-top: 1px solid #ccc;
+    /* padding: 0px 10px; */
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 100;
+  }
+
+  .thumbnail {
+    display: inline-block;
+    height: 70px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    cursor: pointer;
+  }
+
+  .thumbnail:hover {
+    border-color: #007bff;
+  }
+
+  #pageIndicator {
+    position: fixed;
+    bottom: 70px;
+    left: 10%;
+    transform: translateX(-50%);
+    background: #fff7e6;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 101;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  canvas {
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  .pdf-page {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  #downloadBtn {
+    width: calc(100% - 40px);
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 0;
+    font-size: 14px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    z-index: 102;
+  }
+}
+
+@media (max-width: 460px) {
+  body {
+    padding: 10px;
+    margin: 0;
+  }
+
+  .viewer-area {
+    flex-direction: column;
+  }
+
+  #pdfViewer {
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  #thumbnailContainer {
+    display: none;
+  }
+
+  .thumbnail {
+    display: none;
+  }
+
+  #pageIndicator {
+    left: 20%;
+    background: #fff7e6;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    z-index: 1000;
+  }
+
+  #downloadBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    font-size: 14px;
+    padding: 10px 0;
+    width: calc(40% - 20px);
+    border-radius: 8px;
+    z-index: 999;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  .pdf-page {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
