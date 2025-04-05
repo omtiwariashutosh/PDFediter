@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Viewer & Editor</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Upload PDF</h2>
+        <input type="file" id="pdfFile" accept="application/pdf" />
+
+        <div class="viewer-area">
+            <div id="pdfViewer" style="overflow-y: scroll;">
+            </div>
+            <div id="thumbnailContainer">
+                <div id="pageIndicator">Page: <span id="currentPage">0</span> / <span id="totalPages">0</span></div>
+            </div>
+        </div>
+
+        <button id="downloadBtn">Download PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
